@@ -1,11 +1,18 @@
 import mysql from "mysql2";
 import { promisify } from "util";
 
-const connection = mysql.createConnection({
+const query = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
   database: "meds"
 })
+query.connect((err) => {
+  if (err) {
+    console.error("ERROR Connecting");
+    return;
+  }
 
-export default promisify(connection.execute).bind(query);
+  console.log("CONNECTION Successfully");
+});
+export default promisify(query.execute).bind(query);

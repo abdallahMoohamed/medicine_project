@@ -5,45 +5,46 @@ import * as requestController from './request.js'
 const router = Router()
 
 
-// get for admin
-router.get(
-  '/getRequist',
-  // Admin
-  requestController.getRequestForAdmin()
-)
-
-// get for user 
-router.get(
-  '/getRequist/:id',
-  // User
-  requestController.getRequestForUser()
-)
-
 // send 
 router.post(
   "/sendRequests",
   // authorize
+  requestController.sendRequest
 );
 
 // accept 
 router.patch(
   "/acceptRequests/:id",
   // admin,
-  requestController.acceptRequset()
+  requestController.acceptRequset
 )
 
 // ignore 
 router.patch(
   "/ignoreRequests/:id",
   //admin
-  requestController.igonreRequest()
+  requestController.igonreRequest
 )
 
 // delete 
 router.delete(
   "/deleteRequests/:id",
   // admin
-  requestController.deleteRequet()
+  requestController.deleteRequet
 );
+
+// history for admin
+router.get(
+  '/getRequist',
+  // Admin
+  requestController.getRequestForAdmin
+)
+
+// history for user
+router.get(
+  '/getRequist/:id',
+  // User
+  requestController.getRequestForUser
+)
 
 export default router

@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import query from '../../DB/connection.js'
+import connection from '../../DB/connection.js'
 
 
 const auth = () => {
@@ -14,12 +14,12 @@ const auth = () => {
       if (!decoded?.id) {
         return res.json({ message: "In-valid token payload" })
       }
-      const user = 
-      // const authUser = await userModel.findById(decoded.id).select('userName email role')
-      // if (!authUser) {
-      //   return res.json({ message: "Not register account" })
-      // }
-      req.user = authUser;
+      const user =
+        // const authUser = await userModel.findById(decoded.id).select('userName email role')
+        // if (!authUser) {
+        //   return res.json({ message: "Not register account" })
+        // }
+        req.user = authUser;
       return next()
     } catch (error) {
       return res.json({ message: "Catch error", err: error?.message })
