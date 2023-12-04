@@ -22,4 +22,4 @@ const initApp = (app, express) => {
 
 
 
-export default initApp
+export default initApp;
